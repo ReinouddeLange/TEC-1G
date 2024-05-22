@@ -12,15 +12,15 @@ In the schematics we find some switches or jumpers regarding these pins:
 
 <img width="500" alt="Schematics TEC-1G - SW3 - SW4 - JP3 - JP4 - JP5" src="https://github.com/ReinouddeLange/TEC-1G/assets/6297024/298ed533-237d-4d96-a7c7-449f4a7dc58e">
 
-For my EEPROM the following settings work:
+For my EEPROM the following settings work (ROM Size):
 
 <img width="150" alt="JP3-JP5" src="https://github.com/ReinouddeLange/TEC-1G/assets/6297024/a947ca78-0e8b-4e81-819f-b8d5242b5112">
 
 The EEPROM has 28 pins, so all jumpers are at the bottom.
 
+SW3 and SW4 are ROM Select.
 
 SW3 is set to 2-3, so A14 which is in fact /WE on my EEPROM is HIGH. That is correct, we don't want Write enabled.
-
 
 SW4 is set to 1-2, so A15 which is in fact A14 on my EEPROM is LOW. This will determine which monitor is used.
 
