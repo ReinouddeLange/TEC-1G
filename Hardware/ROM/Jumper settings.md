@@ -22,12 +22,12 @@ The EEPROM has 28 pins, so all jumpers are at the bottom.
 SW3 is set to 2-3, so A14 which is in fact /WE on my EEPROM is HIGH. That is correct, we don't want Write enabled.
 
 
-SW4 is set to 1-2, so A15 which is in fact A14 on my EEPROM is LOW. This will determine which monitor is used
+SW4 is set to 1-2, so A15 which is in fact A14 on my EEPROM is LOW. This will determine which monitor is used.
 
 <img width="200" alt="SW3 - SW4" src="https://github.com/ReinouddeLange/TEC-1G/assets/6297024/ea182651-9c71-425b-bf39-fc8236015eff">
 
 
-
+Todo: test what happens with monitor if I change SW4.
 
 
 
