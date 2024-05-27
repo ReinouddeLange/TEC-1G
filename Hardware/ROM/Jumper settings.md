@@ -22,12 +22,12 @@ SW3 and SW4 are ROM Select.
 
 SW3 is set to 2-3, so A14 which is in fact /WE on my EEPROM is HIGH. That is correct, we don't want Write enabled.
 
-SW4 is set to 1-2, so A15 which is in fact A14 on my EEPROM is LOW. This will determine which monitor is used.
+SW4 is set to 1-2, so A15 which is in fact A14 on my EEPROM is LOW. This will determine which monitor is used. When SW4 is set to 1-2 the lower part of the ROM is used.
 
 <img width="200" alt="SW3 - SW4" src="https://github.com/ReinouddeLange/TEC-1G/assets/6297024/ea182651-9c71-425b-bf39-fc8236015eff">
 
+When SW4 is set to 2-3 the upper part of the ROM is used.
 
-Todo: test what happens with monitor if I change SW4.
-
+<img width="200" alt="SW3 - SW4 other monitor" src="https://github.com/ReinouddeLange/TEC-1G/assets/6297024/51b41ec1-1be4-48f1-bd08-1c17fe38614e">
 
 
