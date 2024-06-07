@@ -1,4 +1,4 @@
-
+# Jumper settings for the ROM
 I tried to figure out how to set the jumpers / switches for my EEPROM.
 
 My EEPROM (28C256) has almost the same pinout as the 27C512 EPROM on which the schematics are based on:
