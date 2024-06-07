@@ -8,6 +8,11 @@ My EEPROM (28C256) has almost the same pinout as the 27C512 EPROM on which the s
 As you can see they are almost identical but some pins differ. A14 is on pin 1 where the 27C512 has A15.
 Pin 27 which is /WE on the 28C256 is A14 on the 27C512.
 
+|    | 27C256 | 27C512 | 28C256 |
+|----|--------|--------|--------|
+| 01 |   A14  |   A14  |   /WE  |
+| 27 |   Vpp  |   A15  |   A14  |
+
 In the schematics we find some switches or jumpers regarding these pins:
 
 <img width="500" alt="Schematics TEC-1G - SW3 - SW4 - JP3 - JP4 - JP5" src="https://github.com/ReinouddeLange/TEC-1G/assets/6297024/298ed533-237d-4d96-a7c7-449f4a7dc58e">
