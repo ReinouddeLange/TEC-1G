@@ -1,0 +1,27 @@
+	.ORG   $1000   
+	LD   A,01   
+left:	OUT   ($FB),A   
+	RLCA   
+	PUSH   AF   
+	CALL   delay   
+	POP   AF   
+	CP   $80   
+	JP   NZ,left   
+right:	OUT   ($FB),A   
+	RRCA   
+	PUSH   AF   
+	CALL   delay   
+	POP   AF   
+	CP   $01   
+	JP   NZ,right   
+	JP   left
+	
+	.ORG   $2000   
+delay:	LD   DE,$FFFF   
+loop:	DEC   DE   
+	LD   A,D   
+	OR   E   
+	JP   NZ,loop   
+	RET   
+	
+	

@@ -1,0 +1,11 @@
+1000                          .ORG   $1000   
+1000   3E 00                  LD   A,$00   
+1002   D3 FB                  OUT   ($FB),A   
+1004                LOOP:        
+1004   DB FB                  IN   A,($FB)   
+1006   D3 FB                  OUT   ($FB),A   
+1008   18 FA                  JR   LOOP   
+
+
+LOOP:               1004 DEFINED AT LINE 4
+                    > USED AT LINE 7

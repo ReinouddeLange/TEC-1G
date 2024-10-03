@@ -1,0 +1,39 @@
+1000                          .ORG   $1000   
+1000   3E 01                  LD   A,01   
+1002   D3 FB        LEFT:     OUT   ($FB),A   
+1004   07                     RLCA      
+1005   F5                     PUSH   AF   
+1006   CD 00 20               CALL   delay   
+1009   F1                     POP   AF   
+100A   FE 80                  CP   $80   
+100C   C2 02 10               JP   NZ,left   
+100F   D3 FB        RIGHT:    OUT   ($FB),A   
+1011   0F                     RRCA      
+1012   F5                     PUSH   AF   
+1013   CD 00 20               CALL   delay   
+1016   F1                     POP   AF   
+1017   FE 01                  CP   $01   
+1019   C2 0F 10               JP   NZ,right   
+101C   C3 02 10               JP   left   
+101F                             ; 
+2000                          .ORG   $2000   
+2000   11 FF FF     DELAY:    LD   DE,$FFFF   
+2003   1B           LOOP:     DEC   DE   
+2004   7A                     LD   A,D   
+2005   B3                     OR   E   
+2006   C2 03 20               JP   NZ,loop   
+2009   C9                     RET      
+200A                             ; 
+200A                             ; 
+
+
+LEFT:               1002 DEFINED AT LINE 3
+                    > USED AT LINE 9
+                    > USED AT LINE 17
+RIGHT:              100F DEFINED AT LINE 10
+                    > USED AT LINE 16
+DELAY:              2000 DEFINED AT LINE 20
+                    > USED AT LINE 6
+                    > USED AT LINE 13
+LOOP:               2003 DEFINED AT LINE 21
+                    > USED AT LINE 24

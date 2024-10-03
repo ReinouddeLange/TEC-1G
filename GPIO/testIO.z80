@@ -1,0 +1,7 @@
+		.ORG $1000   
+		LD A,$00   
+		OUT ($FB),A   
+LOOP:  
+		IN A,($FB)   
+		OUT ($FB),A   
+		JR LOOP
