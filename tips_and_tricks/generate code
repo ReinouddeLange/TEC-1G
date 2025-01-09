@@ -1,0 +1,7 @@
+asm80 -t bin <file name>.z80
+asm80 -t hex <file name>.z80
+
+hexdump -C <file name>.bin
+hexdump -C <file name>.hex
+
+bin2tec -f <file name>.bin
