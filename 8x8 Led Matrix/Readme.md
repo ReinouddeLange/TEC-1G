@@ -17,6 +17,6 @@
 ![PXL_20250107_162331694](https://github.com/user-attachments/assets/b7cf068f-bfbe-4cb3-be01-10cfa33e0849)
 
 
-<img width="664" alt="TEC-1 8x8 led matrix" src="https://github.com/user-attachments/assets/2ac487e5-b892-430b-b21b-ea84573e481e" />
+<img width="664" alt="TEC-1 8x8 led matrix original" src="https://github.com/user-attachments/assets/2ac487e5-b892-430b-b21b-ea84573e481e" />
 
-<img width="664" alt="TEC-1 8x8 led matrix" src="https://github.com/user-attachments/assets/95ebd757-04f2-4b90-8795-3545e1dda0d4" />
+<img width="664" alt="TEC-1 8x8 led matrix RdL version" src="https://github.com/user-attachments/assets/95ebd757-04f2-4b90-8795-3545e1dda0d4" />
