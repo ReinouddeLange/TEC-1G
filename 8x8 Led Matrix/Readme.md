@@ -1,6 +1,6 @@
 # 8x8 Led Matrix
 
-![schematics original 8x8 led matrix](https://github.com/user-attachments/assets/72958514-1d5b-45d7-a3e1-5271da147f7e)
+<img width="400" alt="TEC-1 8x8 led matrix schematics" src="https://github.com/user-attachments/assets/72958514-1d5b-45d7-a3e1-5271da147f7e" />
 
 
 
