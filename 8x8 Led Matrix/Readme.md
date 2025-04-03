@@ -38,4 +38,4 @@ Final schematics:
 <p align="center" ><img width="1200" alt="8x8 led matrix schematics v2" src="https://github.com/user-attachments/assets/c57f3681-07ac-4136-a0de-69326830769e" /></p>
 
 ### Credits
-Thanks to Brian Chiha for the advise, review and testing of boards v1 and v2.
+Thanks to Brian Chiha for the advice, review and testing of boards v1 and v2.
