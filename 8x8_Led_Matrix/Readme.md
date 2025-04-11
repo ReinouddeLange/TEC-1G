@@ -43,11 +43,14 @@ Final schematics:
 |Item|Component|Quantity|Description|
 |:---|:---|:---|:---|
 |U4|YSM-1288CR3G2C|1|8x8 Dual Color LED Matrix|
+|or use:|BL-M12A883SG|1|Adafruit 458*|
 |U3,U2,U1|74LS273|3|OCTAL D-TYPE FLIP-FLOP WITH CLEAR|
 |R16,R15,R14,R13,R12,R11,R10,R9|1K|8|Resistor|
 |R8,R7,R6,R5,R4,R3,R2,R1|220R|8|Resistor|
 |Q8,Q7,Q6,Q5,Q4,Q3,Q2,Q1|BC547|8|NPN Transistor|
 |J1|2x10 Pitch 2.54mm|1|PinHeader|
+
+\* easier to find
 ### Gerbers
 Gerbers are found in the folder: Gerbers.
 
