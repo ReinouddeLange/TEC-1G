@@ -39,15 +39,17 @@ Final schematics:
 
 ## Assembly information
 
+### Components
+|Item|Component|Quantity|Description|
+|:---|:---|:---|:---|
+|U4|YSM-1288CR3G2C|1|8x8 Dual Color LED Matrix|
+|U3,U2,U1|74LS273|3|OCTAL D-TYPE FLIP-FLOP WITH CLEAR|
+|R16,R15,R14,R13,R12,R11,R10,R9|1K|8|Resistor|
+|R8,R7,R6,R5,R4,R3,R2,R1|220R|8|Resistor|
+|Q8,Q7,Q6,Q5,Q4,Q3,Q2,Q1|BC547|8|NPN Transistor|
+|J1|2x10 Pitch 2.54mm|1|PinHeader|
+### Gerbers
+Gerbers are found in the folder: Gerbers.
 
-|Id|Designator|Package|Quantity|Designation|
-|:---|:---|:---|:---|:---|
-|2|U4|YSM-1288CR3G2C|1|YSM-1288CR3G2C|
-|3|U3,U2,U1|DIP-20_W7.62mm_Socket|3|74LS273|
-|4|R16,R15,R14,R13,R12,R11,R10,R9|R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal|8|1K|
-|5|R8,R7,R6,R5,R4,R3,R2,R1|R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal|8|220R|
-|6|Q8,Q7,Q6,Q5,Q4,Q3,Q2,Q1|TO-92_Inline|8|BC547|
-|7|J1|PinHeader_2x10_P2.54mm_Horizontal|1|Conn_02x10_Odd_Even|
-
-### Credits
+## Credits
 Thanks to Brian Chiha for the advice, review and testing of boards v1 and v2.
