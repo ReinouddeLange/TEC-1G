@@ -26,13 +26,14 @@ minipro -p AT28C256 -w mon3-16-32k.bin
 ```
 
 ### Write protected error
+```
 Verification failed at address 0x0000: File=0xC3, Device=0xFF
 This chip may be write-protected. Use -u and try again.
-
+```
 ### Write EEPROM remove write protect
-To remove the write protect:
--u,  --unprotect
-Disable protection before programming.
+To remove the write protect:  
+__-u,  --unprotect__  
+Disable protection before programming.  
 
 ```
 minipro -p AT28C256 -u -w mon3-16-32k.bin
