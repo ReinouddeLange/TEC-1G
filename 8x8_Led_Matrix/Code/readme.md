@@ -1,4 +1,6 @@
 # Code for 8x8 LED matrix
+Following code is based on the work done by Brian Chiha. You should check his great video on multiplexing: https://www.youtube.com/watch?v=v2alYQowcHg
+
 ## 8x8_MP1
 
 ## 8x8_MP2
