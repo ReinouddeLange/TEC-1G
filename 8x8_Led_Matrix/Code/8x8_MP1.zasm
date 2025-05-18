@@ -1,27 +1,28 @@
 ;Code based on work done by Brian Chiha
 ;Check his great video on multiplexing: https://www.youtube.com/watch?v=v2alYQowcHg
-            ORG     4000H
-ROW:      EQU     0x05               ;ROW CATHODE DRIVER LATCH
-COLUMN:   EQU     0x06               ;COLUMN ANODE DRIVER LATCH
+
+		ORG	4000H
+ROW:		EQU	0x05			;ROW CATHODE DRIVER LATCH
+COLUMN:		EQU	0x06			;COLUMN ANODE DRIVER LATCH
 
 
 START:                
-            LD      B,01H               ;Scan Counter starts on the Right
-            LD      HL,LED8x8_BUFF      ;Data for the 8x8
+		LD      B,01H			;Scan Counter starts on the Right
+		LD      HL,LED8x8_BUFF		;Data for the 8x8
 S2:               
-            LD      A,(HL)              ;Get 8x8 data
-            OUT     (COLUMN),A          ;Output Column data for current row
-            LD      A,B                 ;Load Column
-            OUT     (ROW),A  	        ;Turn on 8x8 Row
+		LD      A,(HL)			;Get 8x8 data
+		OUT     (COLUMN),A		;Output Column data for current row
+		LD      A,B			;Load Column
+		OUT     (ROW),A			;Turn on 8x8 Row
 S3:
-            LD      B,40H               ;Delay to keep LED's on 
-S4:         DJNZ    S4 
-            LD      B,A                 ;Save Row
-            XOR     A                   ;Clear A
-            OUT     (ROW),A             ;Blank out Row                                 
-            INC     HL                  ;Move 8x8 data forward
-            RLC     B                   ;Rotate Left with Carry
-            JR      NC,S2               ;If more rows to do, repeat
-            JR      START      
+		LD      B,40H			;Delay to keep LED's on 
+S4:		DJNZ    S4 
+		LD      B,A			;Save Row
+		XOR     A			;Clear A
+		OUT     (ROW),A			;Blank out Row
+		INC     HL			;Move 8x8 data forward
+		RLC     B			;Rotate Left with Carry
+		JR      NC,S2			;If more rows to do, repeat
+		JR      START      
 
-LED8x8_BUFF: DB     01CH,01CH,01CH,08H,03FH,048H,014H,024H  ;Boogie
+LED8x8_BUFF:	DB	01CH,01CH,01CH,08H,03FH,048H,014H,024H  ;Boogie
