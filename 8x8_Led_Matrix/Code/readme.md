@@ -5,9 +5,8 @@ Following code is based on the work done by Brian Chiha. You should check his gr
 The code is written for my first design of the 8x8 matrix: first led is top left, row counts from top to bottom, columns count from left to right.
 <p align="center" ><img width="500" alt="8x8 led matrix connections" src="https://github.com/user-attachments/assets/88813d37-8e6f-4f80-ad62-7cba5bfefbcd" /></p>
 
+
 ## 8x8_MP1
-
-
 This code controls an **8x8 LED matrix display** using **multiplexing**. Here's a step-by-step explanation of how it works:
 
 
@@ -52,14 +51,22 @@ START:
 
 ```asm
 S2:               
-    LD      A,(HL)              ; Load current row’s LED pattern into A
-    OUT     (COLUMN),A          ; Send pattern to column driver (turns ON selected LEDs)
-    LD      A,B                 ; Load the row selector into A
-    OUT     (ROW),A             ; Activate the current row
+            LD      A,(HL)         ;Get 8x8 data
+            OUT     (COLUMN),A     ;Output Column data for current row
+            LD      A,B            ;Load Column
+            OUT     (ROW),A        ;Turn on 8x8 Row
+S3:
+            LD      B,40H          ;Delay to keep LED's on 
+S4:         DJNZ    S4 
+            LD      B,A            ;Save Row
+            XOR     A              ;Clear A
+            OUT     (ROW),A        ;Blank out Row                                 
+            INC     HL             ;Move 8x8 data forward
+            RLC     B              ;Rotate Left with Carry
+            JR      NC,S2          ;If more rows to do, repeat
 ```
 
 * The correct **row is selected**, and the correct **LEDs for that row** are lit.
-
 
 #### Delay Loop (`S3`, `S4` labels)
 
@@ -113,6 +120,8 @@ For example:
 
 * `01CH = 00011100` → LEDs 3, 4, 5 are ON
 * `08H = 00001000` → LED 4 is ON
+  
+![Boogie](https://github.com/user-attachments/assets/6e4dacca-48b9-40d9-b248-c4f521febe62)
 
 
 ### Summary
@@ -124,7 +133,60 @@ This code:
 * Loops through all 8 rows rapidly (multiplexing).
 * The result is a stable image on the LED matrix due to **persistence of vision**.
 
+
 ## 8x8_MP2
+* **Alternates between two frames**: `LED8x8_BUF1` and `LED8x8_BUF2`.
+* Adds a **frame delay** using a counter (`DE`) to control how long each frame is shown.
+
+
+### Animation via Frame Switching
+
+```asm
+START:
+            LD    DE,$00FF            ;Frame Counter
+START1:                
+            LD    HL,LED8x8_BUF1      ;Data for the 8x8
+            LD    B,01H               ;Scan Counter starts on the Right
+            CALL  S1
+            JP    NZ,START1           ;When not zero jump to START1      
+            LD    DE,$00FF            ;Frame Counter
+START2:                
+            LD    HL,LED8x8_BUF2      ;Data for the 8x8
+            LD    B,01H               ;Scan Counter starts on the Right
+            CALL  S1
+            JP    NZ,START2           ;When not zero jump to START2      
+            JR    START
+```
+
+* Loads `LED8x8_BUF1`, calls `S1` (a shared routine), then checks if the frame delay expired.
+* When `DE` reaches 0, it switches frames.
+* Repeats with `LED8x8_BUF2` in the next phase.
+
+### Shared Subroutine (`S1`)
+
+```asm
+S1:               
+            LD      A,(HL)       ;Get 8x8 data for Columns
+            OUT     (COLUMN),A   ;Output Column data for current row
+            LD      A,B          ;Load Row
+            OUT     (ROW),A      ;Turn on 8x8 Row
+            LD      B,40H        ;Delay to keep LED's on 
+S2:         DJNZ    S2 
+            LD      B,A          ;Save Row
+            XOR     A            ;Clear A
+            OUT     (ROW),A      ;Blank out Row                                 
+            INC     HL           ;Move 8x8 data forward
+            RLC     B            ;Rotate Left with Carry
+            JR      NC,S1        ;If more rows to do, repeat
+            DEC     DE           ;Decrement Frame Counter
+            LD      A,D          ;Load Frame Counter
+            OR      E
+            RET		
+```
+
+* After rotating to next row (`RLC B`), it also **decrements `DE`**, the frame counter.
+* It **returns to caller**, who checks `NZ` to decide whether to keep scanning.
+
 
 ### Flow Chart
 <img width="459" alt="8x8 LED Matrix - animation code" src="https://github.com/user-attachments/assets/b447e1a0-148d-4773-8a7b-b13dc4b4a90a" />
