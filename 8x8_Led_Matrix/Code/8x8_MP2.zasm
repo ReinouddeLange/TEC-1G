@@ -1,42 +1,42 @@
 ;Code based on work done by Brian Chiha
 ;Check his great video on multiplexing: https://www.youtube.com/watch?v=v2alYQowcHg
 
-            ORG     4000H
+		ORG     4000H
 ROW:      	EQU     0x05				;ROW CATHODE DRIVER LATCH
 COLUMN:   	EQU     0x06				;COLUMN ANODE DRIVER LATCH
 
 START:
-            LD		DE,$00FF			;Frame Counter
+		LD	DE,$00FF			;Frame Counter
 START1:                
-		LD		HL,LED8x8_BUF1			;Data for the 8x8
-		LD		B,01H				;Scan Counter starts on the Right
-		CALL		S1
-		JP		NZ, START1			;When not zero jump to START1      
-		LD		DE,$00FF			;Frame Counter
+		LD	HL,LED8x8_BUF1			;Data for the 8x8
+		LD	B,01H				;Scan Counter starts on the Right
+		CALL	S1
+		JP	NZ, START1			;When not zero jump to START1      
+		LD	DE,$00FF			;Frame Counter
 START2:                
-		LD		HL,LED8x8_BUF2			;Data for the 8x8
-		LD		B,01H				;Scan Counter starts on the Right
-		CALL		S1
-		JP		NZ, START2			;When not zero jump to START2      
-		JR		START
+		LD	HL,LED8x8_BUF2			;Data for the 8x8
+		LD	B,01H				;Scan Counter starts on the Right
+		CALL	S1
+		JP	NZ, START2			;When not zero jump to START2      
+		JR	START
 
 S1:               
-		LD		A,(HL)				;Get 8x8 data for Columns
-		OUT		(COLUMN),A			;Output Column data for current row
-		LD		A,B				;Load Row
-		OUT		(ROW),A				;Turn on 8x8 Row
-		LD		B,40H				;Delay to keep LED's on 
-S2:		DJNZ		S2 
-		LD		B,A				;Save Row
-		XOR		A				;Clear A
-		OUT		(ROW),A				;Blank out Row                                 
-		INC		HL				;Move 8x8 data forward
-		RLC		B				;Rotate Left with Carry
-		JR		NC,S1				;If more rows to do, repeat
-		DEC		DE				;Decrement Frame Counter
-		LD		A,D				;Load Frame Counter
-		OR		E
+		LD	A,(HL)				;Get 8x8 data for Columns
+		OUT	(COLUMN),A			;Output Column data for current row
+		LD	A,B				;Load Row
+		OUT	(ROW),A				;Turn on 8x8 Row
+		LD	B,40H				;Delay to keep LED's on 
+S2:		DJNZ	S2 
+		LD	B,A				;Save Row
+		XOR	A				;Clear A
+		OUT	(ROW),A				;Blank out Row                                 
+		INC	HL				;Move 8x8 data forward
+		RLC	B				;Rotate Left with Carry
+		JR	NC,S1				;If more rows to do, repeat
+		DEC	DE				;Decrement Frame Counter
+		LD	A,D				;Load Frame Counter
+		OR	E
 		RET			
 
-LED8x8_BUF1:	DB     01CH,01CH,01CH,08H,03FH,048H,014H,024H  ;Boogie
+LED8x8_BUF1:	DB	01CH,01CH,01CH,08H,03FH,048H,014H,024H	;Boogie
 LED8x8_BUF2:	DB     01CH,01CH,01CH,09H,07EH,08H,014H,012H   ;Woogie
