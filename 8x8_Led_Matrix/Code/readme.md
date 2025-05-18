@@ -7,7 +7,7 @@ The code is written for my first design of the 8x8 matrix: first led is top left
 
 ## 8x8_MP1
 
-## 8x8_MP2
+
 This code controls an **8x8 LED matrix display** using **multiplexing**. Here's a step-by-step explanation of how it works:
 
 
@@ -124,6 +124,7 @@ This code:
 * Loops through all 8 rows rapidly (multiplexing).
 * The result is a stable image on the LED matrix due to **persistence of vision**.
 
+## 8x8_MP2
 
 ### Flow Chart
 <img width="459" alt="8x8 LED Matrix - animation code" src="https://github.com/user-attachments/assets/b447e1a0-148d-4773-8a7b-b13dc4b4a90a" />
