@@ -1,13 +1,16 @@
 # Code for 8x8 LED matrix
 Following code is based on the work done by Brian Chiha. You should check his great video on multiplexing: https://www.youtube.com/watch?v=v2alYQowcHg
 
+### Hardware Recap
+The code is written for my first design of the 8x8 matrix: first led is top left, row counts from top to bottom, columns count from left to right.
+<p align="center" ><img width="500" alt="8x8 led matrix connections" src="https://github.com/user-attachments/assets/88813d37-8e6f-4f80-ad62-7cba5bfefbcd" /></p>
+
 ## 8x8_MP1
 
 ## 8x8_MP2
 This code controls an **8x8 LED matrix display** using **multiplexing**. Here's a step-by-step explanation of how it works:
 
-### Hardware Recap
-The code is written for my first design of the 8x8 matrix: first led is top left, row counts from top to bottom, columns count from left to right.
+
 * **LED matrix:**
 
   * 8 rows (controlled via `ROW`)
