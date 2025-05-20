@@ -38,6 +38,8 @@ The original 8x8 matrix seems to be designed from a mathematical point of view, 
 
 So I designed a version 2 with rotated display, bigger footprint for the transistors and all latches connected to reset line (credits to Brian Chiha):
 <p align="center" ><img width="300" alt="PCB v2" src="https://github.com/user-attachments/assets/ffbf3bef-a75c-4fd2-b7e6-438e467699d5" /></p>
+Version 2 assembled:
+<p align="center" ><img width="300" alt="PCB v2 assembled" src="https://github.com/user-attachments/assets/0a2d2231-a3f0-4830-93b1-f1a3c4b9de25" /></p>
 
 Final schematics:
 <p align="center" ><img width="1200" alt="8x8 led matrix schematics v2" src="https://github.com/user-attachments/assets/c57f3681-07ac-4136-a0de-69326830769e" /></p>
