@@ -19,6 +19,11 @@ Originally I had the plan to use a experiment PCB, but the thought of soldering 
 I ordered the PCB and to my surprise it worked very well! Here is my first version next to the version Ben Grimmet made:
 <p align="center" ><img width="400" alt="TEC-1 8x8 led matrix RdL and Ben Grimmet version" src="https://github.com/user-attachments/assets/b1630003-4a62-47b0-bc6f-30cfc586f8d4" /></p>
 
+### Revision
+I modified the first version to eliminate strange behaviour. I cut the traces to pin 1 on U1 an U2 and connected these pins to pin 1 on U3. In this way all pins are connected to the reset line.
+<p align="center" ><img width="400" alt="Modification first version PCB" src="https://github.com/user-attachments/assets/959308eb-991a-4a6b-9290-29b27c67519d" /></p>
+
+
 ## Version 2
 Maybe I should have taken a closer look on how the TEC programs are written for the original 8x8 matrix. I only looked at the datasheet for the 8x8 matrix, which uses rows and columns. The first row is at the top and the first column is at the left: <br>
 
